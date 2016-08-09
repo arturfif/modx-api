@@ -25,7 +25,7 @@ public class FileManager {
     private final String upOneLevelUrl;
 
 
-    public FileManager(Builder builder) {
+    private FileManager(Builder builder) {
         this.siteUrl = builder.siteUrl;
         this.indexUrl = siteUrl + "/manager/index.php";
         this.path = builder.path;

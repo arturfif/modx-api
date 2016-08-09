@@ -72,10 +72,16 @@ public class FileInfo extends Item {
         }
     }
 
-    public void edit() throws ModxException {
+    public void edit(String content) throws ModxException {
         if (!isEditable) {
             throw new ModxException(ACTION_UNAVAILABLE_TEXT);
         }
+        Unirest.post(indexUrl)
+                .header("Referer", indexUrl)
+                .queryString("a", 31)
+                .queryString("mode", "save")
+                .queryString("path", path + '/' + name)
+                .queryString("content", content);
     }
 
     public File download(String folderPath) throws ModxException {
