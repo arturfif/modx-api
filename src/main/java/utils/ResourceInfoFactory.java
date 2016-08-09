@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class ResourceConverter {
+public class ResourceInfoFactory {
 
     private static final int NODE_ID_INDEX = 4;
 
