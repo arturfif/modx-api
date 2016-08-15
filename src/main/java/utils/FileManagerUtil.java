@@ -17,7 +17,7 @@ import java.util.Objects;
 
 import static files.types.Action.Type.*;
 
-public class FileManagerFactory {
+public class FileManagerUtil {
 
     private static final long BYTE = 1L;
     private static final long KILOBYTE = 1024L;
@@ -32,12 +32,6 @@ public class FileManagerFactory {
     private static String TOP_LEVEL_URL;
     private static String UP_ONE_LEVEL_URL;
 
-    /**
-     *
-     * @param document
-     * @return
-     * @throws ModxException
-     */
     public static FileManager getFileManager(Document document, String siteUrl) throws ModxException {
         try {
             defineStaticFields(document, siteUrl);

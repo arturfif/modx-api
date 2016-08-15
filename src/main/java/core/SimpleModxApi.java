@@ -5,8 +5,9 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import exceptions.ModxException;
 import files.FileManager;
 import org.jsoup.Jsoup;
-import utils.FileManagerFactory;
-import utils.ResourceInfoFactory;
+import resources.ResourceInfo;
+import utils.FileManagerUtil;
+import utils.ResourcesInfoUtil;
 
 import java.util.List;
 
@@ -81,7 +82,7 @@ public class SimpleModxApi implements ModxApi {
         try {
             String body = Unirest.get(siteUrl + EXPAND_TREE_URL)
                     .header(REFERER, siteUrl + INDEX_URL).asString().getBody();
-            return ResourceInfoFactory.getResources(Jsoup.parse(body));
+            return ResourcesInfoUtil.getResources(Jsoup.parse(body));
 
         } catch (UnirestException e) {
             throw new ModxException(e);
@@ -95,7 +96,7 @@ public class SimpleModxApi implements ModxApi {
             String body = Unirest.get(siteUrl + FILE_MANAGER_URL)
                     .header(REFERER, siteUrl + FILE_MANAGER_URL)
                     .asString().getBody();
-            return FileManagerFactory.getFileManager(Jsoup.parse(body), siteUrl);
+            return FileManagerUtil.getFileManager(Jsoup.parse(body), siteUrl);
 
         } catch (UnirestException e) {
             throw new ModxException(e);

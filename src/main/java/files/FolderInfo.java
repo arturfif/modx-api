@@ -5,7 +5,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import exceptions.ModxException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import utils.FileManagerFactory;
+import utils.FileManagerUtil;
 
 
 public class FolderInfo extends Item {
@@ -31,7 +31,7 @@ public class FolderInfo extends Item {
                     .asString().getBody();
 
             Document document = Jsoup.parse(body);
-            return FileManagerFactory.getFileManager(document, siteUrl);
+            return FileManagerUtil.getFileManager(document, siteUrl);
         } catch (UnirestException | ModxException e) {
             throw new ModxException(e);
         }

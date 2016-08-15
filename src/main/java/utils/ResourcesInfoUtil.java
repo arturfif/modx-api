@@ -1,6 +1,6 @@
 package utils;
 
-import core.ResourceInfo;
+import resources.ResourceInfo;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -10,14 +10,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class ResourceInfoFactory {
+public class ResourcesInfoUtil {
 
     private static final int NODE_ID_INDEX = 4;
 
-    /**
-     * @param document
-     * @return
-     */
     public static List<ResourceInfo> getResources(Document document) {
         Map<Long, Long> parentMap = parentMap(document);
 
